@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import GenerateQR from "./components/GenerateQR";
+import DetectorQr from "./components/DetectorQR";
 
 function App() {
   const [inputValue, setInputValue] = useState(0)
@@ -11,16 +12,12 @@ function App() {
           {(inputValue===1) ? <GenerateQR/> : ""}
           <p></p>
         </div>
-      <button>Mostrar Detector de QR</button>
+      <button onClick={()=>{(inputValue!==2) ? setInputValue(2) : setInputValue(0)}}>Mostrar Detector de QR</button>
         <div>
+        {(inputValue===2) ? <DetectorQr/> : ""}
         
         <p></p>
         </div>
-      <button>Enviar QR por e-mail</button>
-        <div>
-        
-        <p></p>
-      </div>
 
     </>
   );
